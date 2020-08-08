@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>A Webpage</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
+    </head>
+
+    <body>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+        <script src="script.js"></script>
+
+        <div class="jumbotron text-center" style="background-color: steelblue; color:black;">
+        <h1>This Is A Header</h1>
+        <small>any doubt</small>
+        </div>
+        
+        <div class="container-fluid" style="background-color: violet;">
+            <div class="row">
+                <div class="col-sm-4 text-center">
+                    <h1>column 1</h1>
+                    <p>this is a paragraph right here</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h1>column 2</h1>
+                    <p>this is also a paragraph right here</p>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <h1>Status</h1>
+                    <p>completed <span id="complete">0</span> %</p>
+                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-4">
+                    <span id="output"></span>
+                </div>
+                <div class="col-sm-4 text-center">
+                    <input type="file" id="file-selector">
+                    <input type="submit" value="Calculate" id="sum"><br>
+       
+                </div>
+ 
+                <div class="col-sm-4">
+           
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-sm-6" style="background-color: chocolate;">
+                    <h1>result</h1>
+                    <p><span id="list"></span></p>
+
+                </div>
+                <div class="col-sm-3" style="background-color: darkkhaki;">
+                <h3>Present</h3>
+                <span id="Presentees"></span>
+                </div>
+                <div class="col-sm-3" style="background-color: darksalmon;">
+                    <h3>Absent</h3>
+                    <span id="absent"></span>
+                </div>
+            </div>
+
+        </div>
+
+        <script>
+            var button = document.getElementById("sum");
+            var lists = document.getElementById("list");
+            var completed = document.getElementById("complete");
+            var txt = "";
+            var present = [];
+            var i=0;
+
+            var output = document.getElementById("output");
+
+            function clickHandler(){
+                output.innerHTML = "Started";
+                var file = document.getElementById("file-selector").files[0];
+                Tesseract.recognize(
+                "text.jpg",
+                'eng',
+                { logger: m => completed.innerHTML = m.progress.toFixed(2) * 100 }
+                ).then(({ data: { text } }) => {console.log(text); txt = text;lists.innerHTML = txt;var tmp = "";
+                    for(i =0; i < txt.length;i++)
+                {
+                    txt = txt.replace(" ","");
+                    tmp ="";
+                    if (txt.charAt(i) === "C"){
+                        if (!isNaN (txt.charAt(i+1))){
+                            tmp = txt.charAt(i+1).toString();
+                            if(!isNaN(txt.charAt(i+2))){
+                                tmp = tmp + txt.charAt(i+2).toString();
+                            }
+                        }
+                    }
+                    
+                    if(tmp !== ""){
+                        present.push(parseInt(tmp));
+                    }
+    
+                }
+                console.log(present);
+                var out = "";
+                present.sort();
+                for(var a = 0;a < present.length;a++){
+                    out = out + present[a] + ", ";
+                }
+                document.getElementById("Presentees").innerHTML = out;
+
+                var outAbsent = "";
+                present.push(6);
+                present.push(22);
+                for(var b = 1;b < present.length;b++){
+                    if(!present.includes(b)){
+                        outAbsent = outAbsent + b + ", ";
+                    }
+                }
+                document.getElementById("absent").innerHTML = outAbsent;
+
+                });
+
+                
+
+                
+            }
+          
+            button.addEventListener("click",clickHandler);
+            
+        </script>
+
+    </body>
+</html>
