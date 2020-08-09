@@ -1,2 +1,2 @@
 # AutoAttendance
-This is an automatic attendance maker.
+This is a screenshot to Attendance maker for 10 C.

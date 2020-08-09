@@ -3,7 +3,7 @@
     <head>
         <title>A Webpage</title>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles.css">
@@ -14,62 +14,49 @@
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+        <div class="pad">
+        <h1>
+            AutoAttendance
+        </h1>
+        <h6>Screenshot To Attendance Maker</h6>
+        <br>
+        </div>
+
+        <div class="round">
+            <input class="form" type="file" id="file-selector">
+            <br>
+            <br>
+            <input type="submit" value="Calculate" id="sum">
+        </div>
+        <br>
+        <div id="process">
+        <h2  id="output"></h2>
+        <h3 id="complete"></h3>
+        </div>
+        <br>
+  
+            <div id="result" style="width:fit-content; padding: 5px; border-radius: 5px; background-color: grey; margin: auto;" class="row">
+                <div class="col-4">
+                    <div class="list-group" id="list-tab" role="tablist">
+                    <a class="list-group-item list-group-item-action active"  data-toggle="list" href="#Presentees" role="tab" aria-controls="Presentees">Presentees</a>
+                    <a class="list-group-item list-group-item-action"  data-toggle="list" href="#Absentees" role="tab" aria-controls="Absentees">Absentees</a>
+                    <a class="list-group-item list-group-item-action"  data-toggle="list" href="#list" role="tab" aria-controls="list">Output</a>
+                    </div>
+                </div>
+                <div class="col-8">
+                    <div class="tab-content" id="nav-tabContent">
+                    <div class="tab-pane fade show active"  id="Presentees" role="tabpanel" aria-labelledby="Presentees"></div>
+                    <div class="tab-pane fade"  id="Absentees" role="tabpanel" aria-labelledby="Absentees"></div>
+                    <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list"></div>
+                    </div>
+                </div>
+            </div>
+        <br>
+        <br>
+        <br>
+
+
         <script src="script.js"></script>
-
-        <div class="jumbotron text-center" style="background-color: steelblue; color:black;">
-        <h1>This Is A Header</h1>
-        <small>any doubt</small>
-        </div>
-        
-        <div class="container-fluid" style="background-color: violet;">
-            <div class="row">
-                <div class="col-sm-4 text-center">
-                    <h1>column 1</h1>
-                    <p>this is a paragraph right here</p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <h1>column 2</h1>
-                    <p>this is also a paragraph right here</p>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <h1>Status</h1>
-                    <p>completed <span id="complete">0</span> %</p>
-                    
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-4">
-                    <span id="output"></span>
-                </div>
-                <div class="col-sm-4 text-center">
-                    <input type="file" id="file-selector">
-                    <input type="submit" value="Calculate" id="sum">
-                    <br>
-       
-                </div>
- 
-                <div class="col-sm-4">
-           
-                </div>
-            </div>
-
-            <div class="row">
-                <div class="col-sm-6" style="background-color: chocolate;">
-                    <h1>result</h1>
-                    <p><span id="list"></span></p>
-
-                </div>
-                <div class="col-sm-3" style="background-color: darkkhaki;">
-                <h3>Present</h3>
-                <span id="Presentees"></span>
-                </div>
-                <div class="col-sm-3" style="background-color: darksalmon;">
-                    <h3>Absent</h3>
-                    <span id="absent"></span>
-                </div>
-            </div>
-
-        </div>
     </body>
 </html>

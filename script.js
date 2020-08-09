@@ -4,17 +4,24 @@ var completed = document.getElementById("complete");
 var txt = "";
 var present = [];
 var i=0;
+var result = document.getElementById("result");
+
+result.style.visibility = "hidden";
 
 var output = document.getElementById("output");
 
 function clickHandler(){
-    output.innerHTML = "Started";
+    output.innerHTML = "Processing";
     var file = document.getElementById("file-selector").files[0];
+    
     Tesseract.recognize(
-    "text.jpg",
+    file,
     'eng',
-    { logger: m => completed.innerHTML = m.progress.toFixed(2) * 100 }
+    { logger: m => completed.innerHTML = Math.round(m.progress.toFixed(2) * 100 ) + "%"}
     ).then(({ data: { text } }) => {console.log(text); txt = text;lists.innerHTML = txt;var tmp = "";
+    output.innerHTML = "Completed";
+    completed.style.visibility = "hidden";
+
         for(i =0; i < txt.length;i++)
     {
         txt = txt.replace(" ","");
@@ -37,19 +44,20 @@ function clickHandler(){
     var out = "";
     present.sort();
     for(var a = 0;a < present.length;a++){
-        out = out + present[a] + ", ";
+        out = out + present[a] + " ,";
     }
     document.getElementById("Presentees").innerHTML = out;
 
     var outAbsent = "";
     present.push(6);
     present.push(22);
-    for(var b = 1;b < present.length;b++){
+    for(var b = 1;b <= 47;b++){
         if(!present.includes(b)){
-            outAbsent = outAbsent + b + ", ";
+            outAbsent = outAbsent + b + " ,";
         }
     }
-    document.getElementById("absent").innerHTML = outAbsent;
+    document.getElementById("Absentees").innerHTML = outAbsent;
+    result.style.visibility = "visible";
 
     });
 
