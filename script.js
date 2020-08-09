@@ -4,7 +4,7 @@ var completed = document.getElementById("complete");
 var txt = "";
 var present = [];
 var i=0;
-var result = document.getElementById("result");
+var result = document.getElementById("accordionExample");
 
 result.style.visibility = "hidden";
 
