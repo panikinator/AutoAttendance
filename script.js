@@ -67,7 +67,7 @@ function clickHandler(){
         var out = "";
         present.sort();
         for(var a = 0;a < present.length;a++){
-            out = out + present[a] + " ,";
+            out = out + present[a] + ", ";
         }
         document.getElementById("Presentees").innerHTML = out;
     
@@ -76,7 +76,7 @@ function clickHandler(){
         present.push(22);
         for(var b = 1;b <= 47;b++){
             if(!present.includes(b)){
-                outAbsent = outAbsent + b + " ,";
+                outAbsent = outAbsent + b + ", ";
             }
         }
         document.getElementById("Absentees").innerHTML = outAbsent;
