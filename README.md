@@ -1,3 +1,2 @@
-# Get Started!
-
-Add files and start typing 🎉
+# AutoAttendance
+This is a screenshot to Attendance maker for 10 C.
