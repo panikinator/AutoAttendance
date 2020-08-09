@@ -24,34 +24,62 @@
         </div>
 
         <div class="round">
+          <form>
             <input class="form" type="file" id="file-selector">
             <br>
             <br>
             <input type="submit" value="Calculate" id="sum">
+          </form>
         </div>
         <br>
-        <div id="process">
+        <div>
         <h2  id="output"></h2>
         <h3 id="complete"></h3>
         </div>
         <br>
-  
-            <div id="result" style="width: 99%; padding: 5px; border-radius: 5px; background-color: grey; margin: auto;" class="row">
-                <div class="col-4">
-                    <div class="list-group" id="list-tab" role="tablist">
-                    <a class="list-group-item list-group-item-action active"  data-toggle="list" href="#Presentees" role="tab" aria-controls="Presentees">Presentees</a>
-                    <a class="list-group-item list-group-item-action"  data-toggle="list" href="#Absentees" role="tab" aria-controls="Absentees">Absentees</a>
-                    <a class="list-group-item list-group-item-action"  data-toggle="list" href="#list" role="tab" aria-controls="list">Output</a>
-                    </div>
+
+        <div class="accordion" id="accordionExample" style="width: 95%; margin: auto;">
+            <div class="card">
+              <div class="card-header" id="headingOne">
+                <h2 class="mb-0">
+                  <button class="btn btn-block text-left" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                    Presentees
+                  </button>
+                </h2>
+              </div>
+          
+              <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                <div id="Presentees" class="card-body">
                 </div>
-                <div class="col-8">
-                    <div class="tab-content" id="nav-tabContent">
-                    <div class="tab-pane fade show active"  id="Presentees" role="tabpanel" aria-labelledby="Presentees"></div>
-                    <div class="tab-pane fade"  id="Absentees" role="tabpanel" aria-labelledby="Absentees"></div>
-                    <div class="tab-pane fade" id="list" role="tabpanel" aria-labelledby="list"></div>
-                    </div>
-                </div>
+              </div>
             </div>
+            <div class="card">
+              <div class="card-header" id="headingTwo">
+                <h2 class="mb-0">
+                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                    Absentees
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                <div id="Absentees" class="card-body">
+                </div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-header" id="headingThree">
+                <h2 class="mb-0">
+                  <button class="btn btn-block text-left collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                    Output
+                  </button>
+                </h2>
+              </div>
+              <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                <div id="list" class="card-body">
+                </div>
+              </div>
+            </div>
+          </div>
         <br>
         <br>
         <br>

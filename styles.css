@@ -41,6 +41,16 @@ h1, h6, h2, h3 {
     border: none;
 }
 
-#sum:hover {
+#sum:hover, .btn:hover {
     background-color: black;
+    color: white;
+}
+
+.card-header {
+    background-color: grey;
+}
+
+.btn {
+    color: white;
+    background-color: #252525;
 }
