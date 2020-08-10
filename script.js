@@ -26,6 +26,7 @@ function clickHandler(){
     part.style.visibility = "hidden";
     part2.style.visibility = "hidden";
     output.innerHTML = "";
+    currentStatus = true;
     completed.innerHTML = "";
     part2.innerHTML = "";
 
@@ -83,6 +84,7 @@ function clickHandler(){
         }
         document.getElementById("Absentees").innerHTML = outAbsent;
         result.style.visibility = "visible";
+        currentStatus = false;
     
         });
     
@@ -95,6 +97,6 @@ function clickHandler(){
         part2.innerHTML = '<div class="alert alert-warning" role="alert">A file must be selected!</div>';
     }
     
-}
+}}
 
 button.addEventListener("click",clickHandler);
