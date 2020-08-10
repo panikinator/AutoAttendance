@@ -6,6 +6,7 @@ var present = [];
 var i=0;
 var result = document.getElementById("accordionExample");
 result.style.visibility = "hidden";
+var currentStatus = false;
 
 var part = document.getElementById("alert");
 var part2 = document.getElementById("alert2");
@@ -19,6 +20,7 @@ var output = document.getElementById("output");
 
 
 function clickHandler(){
+  if(!currentStatus){
     var file = document.getElementById("file-selector").files[0];
     result.style.visibility = "hidden";
     part.style.visibility = "hidden";
