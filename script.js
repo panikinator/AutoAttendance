@@ -19,14 +19,10 @@ part2.style.visibility = "hidden";
 var output = document.getElementById("output");
 
 function clickHandler(){
-  let bignumber = 0;
-  part.style.visibility = "visible";
-  part2.style.visibility = "visible";
-  completed.innerHTML = "hello";
+  let bignumber = "hello";
   while(true){
-    bignumber++;
-    console.log(bignumber);
-    completed.innerHTML = bignumber + "%";
+    bignumber = bignumber + "hell" ;
+    
   }
 }
 
