@@ -20,9 +20,13 @@ var output = document.getElementById("output");
 
 function clickHandler(){
   let bignumber = 0;
+  part.style.visibility = "visible";
+  part2.style.visibility = "visible";
+  completed.innerHTML = "hello";
   while(true){
     bignumber++;
     console.log(bignumber);
+    completed.innerHTML = bignumber + "%";
   }
 }
 
