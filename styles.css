@@ -67,3 +67,7 @@ h1, h6, h2, h3 {
     background-color: #252525;
 }
 
+.alert {
+  display:inline-block;
+  margin:auto;
+}
