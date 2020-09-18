@@ -18,8 +18,15 @@ part2.style.visibility = "hidden";
 
 var output = document.getElementById("output");
 
-
 function clickHandler(){
+  let bignumber = 0;
+  while(true){
+    bignumber++;
+    console.log(bignumber);
+  }
+}
+
+function clickHandlerOP(){
   if(!currentStatus){
     var file = document.getElementById("file-selector").files[0];
     result.style.visibility = "hidden";
