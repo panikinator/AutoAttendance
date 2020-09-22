@@ -168,11 +168,7 @@ function CopyPresent()
 function CopyAbsent()
 {
   CopyText(absentRollInText);
-  
-  var w = window.open('','','width=100,height=100')
-w.document.write('Copied absentees');
-w.focus()
-setTimeout(function() {w.close();}, 5000)
+  alert("Copied absentees!");
 }
 
 button.addEventListener("click",clickHandler);
