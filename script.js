@@ -71,7 +71,7 @@ function getPresentInText(presentArray)
   let presentText = "";
   for(let p in presentArray)
     {
-      presentText = presentText + p + " ,";
+      presentText = presentText + presentArray[p] + " ,";
     }
   presentText = presentText.slice(0, presentText.length-2);
   return presentText;
@@ -82,7 +82,7 @@ function getAbsentInText(absentArray)
   let absentText = "";
   for(let ab in absentArray)
     {
-      absentText = absentText + ab + " ,";
+      absentText = absentText + absentArray[ab] + ", ";
     }
   absentText = absentText.slice(0, absentText.length-2);
   return absentText;
@@ -120,16 +120,17 @@ function clickHandler(){
     
           
         present = getPresentRolls(txt);
-        present
+        present = present.sort();
             
         console.log(present);
         presentRollInText = getPresentInText(present);
-        absentRollInText = getAbsentInText(absent);
+        
         document.getElementById("Presentees").innerHTML = presentRollInText;
     
         present.push(6);
         present.push(22);
         absent = getAbsentRolls(present);
+        absentRollInText = getAbsentInText(absent);
         document.getElementById("Absentees").innerHTML = absentRollInText;
         result.style.visibility = "visible";
         currentStatus = false;
@@ -148,5 +149,5 @@ function clickHandler(){
 }}
 
 button.addEventListener("click",clickHandler);
-copypresentbutton.addEventListener("click",CopyPresent);
-copyabsentbutton.addEventListener("click",CopyAbsent);
+//copypresentbutton.addEventListener("click",CopyPresent);
+//copyabsentbutton.addEventListener("click",CopyAbsent);
