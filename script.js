@@ -59,9 +59,22 @@ function getAbsentRolls(presentRolls)
         }
     }
   
+  return absentTmp;
+  
 }
 
-function getPresentInText()
+
+function getPresentInText(presentArray)
+{
+  let presentText = "";
+  for(let p in presentArray)
+    {
+      presentText = presentText + p + " ,";
+    }
+  presentText = presentText.slice(0, presentText.length-2);
+  return presentText;
+}
+
 
 function clickHandler(){
   if(!currentStatus){
