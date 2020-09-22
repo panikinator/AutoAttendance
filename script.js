@@ -24,19 +24,19 @@ part2.style.visibility = "hidden";
 var output = document.getElementById("output");
 
 
-function getPresentRolls(text){
+function getPresentRolls(textIn){
   let tmp;
   let presentTmp = [];
-  for(i =0; i < text.length;i++)
+  for(i =0; i < textIn.length;i++)
         {
-            text = text.replace(" ","");
-            text = txt.replace("c","C");
+            textIn = textIn.replace(" ","");
+            textIn = textIn.replace("c","C");
             tmp ="";
-            if (txt.charAt(i) === "C"){
-                if (!isNaN (txt.charAt(i+1))){
-                    tmp = text.charAt(i+1).toString();
-                    if(!isNaN(text.charAt(i+2))){
-                        tmp = tmp + text.charAt(i+2).toString();
+            if (textIn.charAt(i) === "C"){
+                if (!isNaN (textIn.charAt(i+1))){
+                    tmp = textIn.charAt(i+1).toString();
+                    if(!isNaN(textIn.charAt(i+2))){
+                        tmp = tmp + textIn.charAt(i+2).toString();
                     }
                 }
             }
@@ -120,7 +120,7 @@ function clickHandler(){
     
           
         present = getPresentRolls(txt);
-        absent = getAbsentRolls(present);
+        present
             
         console.log(present);
         presentRollInText = getPresentInText(present);
@@ -129,7 +129,7 @@ function clickHandler(){
     
         present.push(6);
         present.push(22);
-        
+        absent = getAbsentRolls(present);
         document.getElementById("Absentees").innerHTML = absentRollInText;
         result.style.visibility = "visible";
         currentStatus = false;
