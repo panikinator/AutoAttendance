@@ -124,16 +124,16 @@ function clickHandler(){
             
         console.log(present);
         presentRollInText = getPresentInText(present);
-        presentRollInText = "(Total Present: " + present.length + ")" + presentRollInText;
         
-        document.getElementById("Presentees").innerHTML = presentRollInText;
+        
+        document.getElementById("Presentees").innerHTML = "(Total Present: " + present.length + ")" + "<br>" + presentRollInText;
     
         present.push(6);
         present.push(22);
         absent = getAbsentRolls(present);
         absentRollInText = getAbsentInText(absent);
-        absentRollInText = "(Total Absent: " + absent.length + ")" + absentRollInText;
-        document.getElementById("Absentees").innerHTML = absentRollInText;
+        
+        document.getElementById("Absentees").innerHTML = "(Total Absent: " + absent.length + ")" + "<br>" + absentRollInText;
         result.style.visibility = "visible";
         currentStatus = false;
     
