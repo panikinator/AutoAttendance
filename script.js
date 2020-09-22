@@ -23,7 +23,6 @@ part2.style.visibility = "hidden";
 
 var output = document.getElementById("output");
 
-
 function getPresentRolls(textIn){
   let tmp;
   let presentTmp = [];
@@ -163,9 +162,15 @@ function CopyText(textToCopy)
 function CopyPresent()
 {
  CopyText(presentRollInText);
-  
+  alert("Copied presentees!");
+}
+
+function CopyAbsent()
+{
+  CopyText(absentRollInText);
+  alert("Copied absentees!"
 }
 
 button.addEventListener("click",clickHandler);
 copypresentbutton.addEventListener("click",CopyPresent);
-//copyabsentbutton.addEventListener("click",CopyAbsent);
+copyabsentbutton.addEventListener("click",CopyAbsent);
