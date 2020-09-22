@@ -124,6 +124,7 @@ function clickHandler(){
             
         console.log(present);
         presentRollInText = getPresentInText(present);
+        presentRollInText = "(Total Present: " + present.length + ")" + presentRollInText;
         
         document.getElementById("Presentees").innerHTML = presentRollInText;
     
@@ -131,6 +132,7 @@ function clickHandler(){
         present.push(22);
         absent = getAbsentRolls(present);
         absentRollInText = getAbsentInText(absent);
+        absentRollInText = "(Total Absent: " + absent.length + ")" + absentRollInText;
         document.getElementById("Absentees").innerHTML = absentRollInText;
         result.style.visibility = "visible";
         currentStatus = false;
