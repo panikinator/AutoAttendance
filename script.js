@@ -1,6 +1,8 @@
 var button = document.getElementById("sum");
 var lists = document.getElementById("list");
 var completed = document.getElementById("complete");
+var copyabsentbutton = document.getElementByID("copyabsent");
+var copypresentbutton = document.getElementByID("copypresent");
 var txt = "";
 var present = [];
 var i=0;
@@ -18,7 +20,30 @@ part2.style.visibility = "hidden";
 
 var output = document.getElementById("output");
 
-
+function getAbsentRolls(text){
+  var tmp;
+  var presentTmp = [];
+  for(i =0; i < text.length;i++)
+        {
+            text = text.replace(" ","");
+            text = txt.replace("c","C");
+            tmp ="";
+            if (txt.charAt(i) === "C"){
+                if (!isNaN (txt.charAt(i+1))){
+                    tmp = text.charAt(i+1).toString();
+                    if(!isNaN(text.charAt(i+2))){
+                        tmp = tmp + text.charAt(i+2).toString();
+                    }
+                }
+            }
+            
+            if(tmp !== ""){
+                presentTmp.push(parseInt(tmp));
+            }
+        }
+  return presentTmp;
+  
+}
 
 function clickHandler(){
   if(!currentStatus){
@@ -49,25 +74,7 @@ function clickHandler(){
         part2.style.visibility = "visible";
         part2.innerHTML = "<div class='alert alert-success' role='alert'>Completed</div>";
     
-            for(i =0; i < txt.length;i++)
-        {
-            txt = txt.replace(" ","");
-            txt = txt.replace("c","C");
-            tmp ="";
-            if (txt.charAt(i) === "C"){
-                if (!isNaN (txt.charAt(i+1))){
-                    tmp = txt.charAt(i+1).toString();
-                    if(!isNaN(txt.charAt(i+2))){
-                        tmp = tmp + txt.charAt(i+2).toString();
-                    }
-                }
-            }
             
-            if(tmp !== ""){
-                present.push(parseInt(tmp));
-            }
-    
-        }
         console.log(present);
         var out = "";
         present.sort();
@@ -102,3 +109,5 @@ function clickHandler(){
 }}
 
 button.addEventListener("click",clickHandler);
+copypresentbutton.addEventListener("click",CopyPresent);
+copyabsentbutton.addEventListener("click",CopyAbsent);
