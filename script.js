@@ -52,6 +52,7 @@ function clickHandler(){
             for(i =0; i < txt.length;i++)
         {
             txt = txt.replace(" ","");
+            txt = txt.replace("c","C");
             tmp ="";
             if (txt.charAt(i) === "C"){
                 if (!isNaN (txt.charAt(i+1))){
