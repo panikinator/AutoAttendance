@@ -5,6 +5,7 @@ var copyabsentbutton = document.getElementByID("copyabsent");
 var copypresentbutton = document.getElementByID("copypresent");
 var txt = "";
 var present = [];
+var absent = [];
 var i=0;
 var result = document.getElementById("accordionExample");
 result.style.visibility = "hidden";
@@ -20,7 +21,8 @@ part2.style.visibility = "hidden";
 
 var output = document.getElementById("output");
 
-function getAbsentRolls(text){
+
+function getPresentRolls(text){
   var tmp;
   var presentTmp = [];
   for(i =0; i < text.length;i++)
@@ -42,8 +44,13 @@ function getAbsentRolls(text){
             }
         }
   return presentTmp;
+}
+
+function getAbsentRolls(present){
+  
   
 }
+
 
 function clickHandler(){
   if(!currentStatus){
@@ -74,6 +81,8 @@ function clickHandler(){
         part2.style.visibility = "visible";
         part2.innerHTML = "<div class='alert alert-success' role='alert'>Completed</div>";
     
+          
+        present = getPresentRolls(txt);
             
         console.log(present);
         var out = "";
