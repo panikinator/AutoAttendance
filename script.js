@@ -1,8 +1,8 @@
 var button = document.getElementById("sum");
 var lists = document.getElementById("list");
 var completed = document.getElementById("complete");
-var copyabsentbutton = document.getElementByID("copyabsent");
-var copypresentbutton = document.getElementByID("copypresent");
+var copyabsentbutton = document.getElementById("copyabsent");
+var copypresentbutton = document.getElementById("copypresent");
 var txt = "";
 var present = [];
 var absent = [];
@@ -23,8 +23,8 @@ var output = document.getElementById("output");
 
 
 function getPresentRolls(text){
-  var tmp;
-  var presentTmp = [];
+  let tmp;
+  let presentTmp = [];
   for(i =0; i < text.length;i++)
         {
             text = text.replace(" ","");
@@ -46,11 +46,22 @@ function getPresentRolls(text){
   return presentTmp;
 }
 
-function getAbsentRolls(present){
-  
+
+
+function getAbsentRolls(presentRolls)
+{
+  let absentTmp = [];
+  for(i = 1; i <= 47; i++)
+    {
+      if(!presentRolls.includes(i))
+        {
+          absentTmp.push(i);
+        }
+    }
   
 }
 
+function getPresentInText()
 
 function clickHandler(){
   if(!currentStatus){
