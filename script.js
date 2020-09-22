@@ -6,6 +6,8 @@ var copypresentbutton = document.getElementById("copypresent");
 var txt = "";
 var present = [];
 var absent = [];
+var presentRollInText = "";
+var absentRollInText = "";
 var i=0;
 var result = document.getElementById("accordionExample");
 result.style.visibility = "hidden";
@@ -75,11 +77,17 @@ function getPresentInText(presentArray)
   return presentText;
 }
 
-function getAbsentInText(presentArray)
+function getAbsentInText(absentArray)
 {
   let absentText = "";
-  for(let a in )
+  for(let ab in absentArray)
+    {
+      absentText = absentText + ab + " ,";
+    }
+  absentText = absentText.slice(0, absentText.length-2);
+  return absentText;
 }
+
 
 function clickHandler(){
   if(!currentStatus){
@@ -112,24 +120,17 @@ function clickHandler(){
     
           
         present = getPresentRolls(txt);
+        absent = getAbsentRolls(present);
             
         console.log(present);
-        var out = "";
-        present.sort();
-        for(var a = 0;a < present.length;a++){
-            out = out + present[a] + ", ";
-        }
-        document.getElementById("Presentees").innerHTML = out;
+        presentRollInText = getPresentInText(present);
+        absentRollInText = getAbsentInText(absent);
+        document.getElementById("Presentees").innerHTML = presentRollInText;
     
-        var outAbsent = "";
         present.push(6);
         present.push(22);
-        for(var b = 1;b <= 47;b++){
-            if(!present.includes(b)){
-                outAbsent = outAbsent + b + ", ";
-            }
-        }
-        document.getElementById("Absentees").innerHTML = outAbsent;
+        
+        document.getElementById("Absentees").innerHTML = absentRollInText;
         result.style.visibility = "visible";
         currentStatus = false;
     
