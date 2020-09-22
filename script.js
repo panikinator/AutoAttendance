@@ -150,11 +150,20 @@ function clickHandler(){
     
 }}
 
+function CopyText(textToCopy)
+{
+  let txtAr = document.createElement('textarea');
+  txtAr.value = textToCopy;
+  document.body.appendChild(txtAr);
+  txtAr.select();
+  document.execCommand('copy');
+  document.body.removeChild(txtAr);
+}
+
 function CopyPresent()
 {
-  let textToCopy = document.getElementById("Presentees");
-  textToCopy.select();
-  document.execCommand("copy");
+ CopyText(presentRollInText);
+  
 }
 
 button.addEventListener("click",clickHandler);
