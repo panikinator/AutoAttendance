@@ -150,6 +150,13 @@ function clickHandler(){
     
 }}
 
+function CopyPresent()
+{
+  let textToCopy = document.getElementById("Presentees");
+  textToCopy.select();
+  document.execCommand("copy");
+}
+
 button.addEventListener("click",clickHandler);
-//copypresentbutton.addEventListener("click",CopyPresent);
+copypresentbutton.addEventListener("click",CopyPresent);
 //copyabsentbutton.addEventListener("click",CopyAbsent);
