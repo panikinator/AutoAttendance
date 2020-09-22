@@ -120,7 +120,7 @@ function clickHandler(){
     
           
         present = getPresentRolls(txt);
-        present = present.sort();
+        present.sort(function(a, b){return a - b});
             
         console.log(present);
         presentRollInText = getPresentInText(present);
