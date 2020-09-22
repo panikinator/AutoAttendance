@@ -75,6 +75,11 @@ function getPresentInText(presentArray)
   return presentText;
 }
 
+function getAbsentInText(presentArray)
+{
+  let absentText = "";
+  for(let a in )
+}
 
 function clickHandler(){
   if(!currentStatus){
